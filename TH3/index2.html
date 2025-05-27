@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Đăng Ký</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Thư viện jQuery phiên bản 3.6.0 -->
+</head>
+<body>
+
+  <h2>Form Đăng Ký</h2>
+<!-- Form đăng ký người dùng -->
+  <form id="registerForm">
+    <label>
+      Họ tên:
+      <input type="text" id="fullname" name="fullname">
+    </label>
+    <label>
+      Email:
+      <input type="email" id="email" name="email">
+    </label>
+    <label>
+      Mật khẩu:
+      <input type="password" id="password" name="password">
+    </label>
+    <button type="submit">Đăng ký</button>
+  </form>
+
+  <div id="message"></div> <!-- Khu vực hiển thị thông báo thành công hoặc lỗi -->
+
+  <div id="congrats">
+    <h3>🎉 Chúc mừng bạn đã đăng ký thành công!</h3>
+    <button id="detailsBtn">Xem chi tiết</button>
+    <div id="details">
+      <p>Chào mừng bạn đến với hệ thống! Vui lòng kiểm tra email để xác nhận tài khoản của bạn.</p>
+    </div>
+  </div>
+
+  <script>
+    // Khi trang được tải xong và jQuery sẵn sàng
+    $(document).ready(function () {
+      console.log("jQuery is ready!");
+        // Bắt sự kiện gửi form đăng ký
+      $('#registerForm').on('submit', function (e) {
+        e.preventDefault();
+        let isValid = true;
+        $('.error').remove(); // Xóa thông báo lỗi cũ
+
+        const name = $('#fullname').val().trim();
+        const email = $('#email').val().trim();
+        const password = $('#password').val();
+
+        // Kiểm tra họ tên
+        if (name === '') {
+          $('#fullname').after('<span class="error"> Vui lòng nhập họ tên</span>');
+          isValid = false;
+        }
+
+        // Kiểm tra email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          $('#email').after('<span class="error"> Email không hợp lệ</span>');
+          isValid = false;
+        }
+
+        // Kiểm tra mật khẩu
+        if (password.length < 6) {
+          $('#password').after('<span class="error"> Mật khẩu phải ít nhất 6 ký tự</span>');
+          isValid = false;
+        }
+
+        if (isValid) {
+          // Gửi dữ liệu AJAX nếu hợp lệ
+          $.ajax({
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            method: 'POST',
+            data: {
+              fullname: name,
+              email: email,
+              password: password
+            },
+            success: function (response) {
+              $('#message').html('<p style="color: green;">Đăng ký thành công!</p>');
+              $('#registerForm').slideUp();
+              $('#congrats').fadeIn();
+            },
+            error: function () {
+              $('#message').html('<p style="color: red;">Server bận, vui lòng thử lại sau.</p>');
+            }
+          });
+        }
+      });
+
+      // Hiển thị thông tin chi tiết bằng hiệu ứng
+      $('#detailsBtn').on('click', function () {
+        $('#details').slideToggle();
+      });
+    });
+  </script>
+
+</body>
+</html>

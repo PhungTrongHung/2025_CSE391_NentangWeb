@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quản Lý Công Việc</title>
+  <link rel="stylesheet" href="style.css"> <!-- Kết nối với file CSS -->
+</head>
+<body>
+  <div class="todo-container">
+    <h1>Quản Lý Công Việc</h1>
+    <!-- Input nhập nội dung công việc mới + nút "Thêm công việc" -->
+    <div class="input-group">
+      <input type="text" id="task-input" placeholder="Nhập công việc mới...">
+      <button onclick="addTask()">Thêm</button>
+    </div>
+    <!-- Các nút lọc công việc (phần mở rộng) -->
+    <div class="filter-buttons">
+      <button onclick="filterTasks('all')">Tất cả</button>
+      <button onclick="filterTasks('active')">Chưa hoàn thành</button>
+      <button onclick="filterTasks('done')">Đã hoàn thành</button>
+    </div>
+    <!-- Danh sách công việc -->
+    <ul id="task-list"></ul>
+  </div>
+  <!-- Kết nối JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
