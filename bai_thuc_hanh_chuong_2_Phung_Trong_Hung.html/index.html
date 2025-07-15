@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sinh viên</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="maSinhVien">Mã sinh viên</label><br>
+        <input type="text" id="maSinhVien" name="maSinhVien" required><br><br>
+
+        <label for="hoVaTen">Họ và tên</label><br>
+        <input type="text" id="hoVaTen" name="hoVaTen" required><br><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="ngaySinh">Ngày sinh</label><br>
+        <input type="date" id="ngaySinh" name="ngaySinh"><br><br>
+
+        <label for="gioiTinh">Giới tính</label><br>
+        <input type="radio" id="nam" name="gioiTinh" value="nam"> Nam
+        <input type="radio" id="nu" name="gioiTinh" value="nu"> Nữ<br><br>
+
+        <label for="ghiChu">Ghi chú</label><br>
+        <textarea id="ghiChu"></textarea><br><br>
+
+    <input type="submit" value="Thêm sinh viên">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>SV001</td>
+                <td>Nguyễn Văn A</td>
+                <td>nguyenvana@example.com</td>
+                <td>Nam</td>
+                <td>15/07/2025</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>SV002</td>
+                <td>Trần Thị B</td>
+                <td>tranb@example.com</td>
+                <td>Nữ</td>
+                <td>15/07/2025</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>SV003</td>
+                <td>Lê Văn C</td>
+                <td>levanc@example.com</td>
+                <td>Nam</td>
+                <td>15/07/2025</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
