@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-actions {
+            display: inline-flex; 
+            justify-content: flex-end;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .form-container { display: flex; flex-wrap: wrap; gap: 20px; }
+        .form-group {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 15px;
+            width: 100%; 
+        }
+        .form-group label {
+            width: 150px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .small-select{
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 15px;
+            width: 100%; 
+        }
+        .small-select label{
+            width: 150px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .form-group input:not([type="checkbox"]):not([type="radio"]),
+        .form-group select,
+        .form-group textarea {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .radio-group {
+            flex-grow: 1;
+            display: block;
+            padding-top: 5px;
+        }
+        .radio-group label { 
+            width: auto;
+            font-weight: normal;
+            margin-right: 0;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+            vertical-align: middle;
+            width: auto;
+        }
+        .form-group .checkbox-group,
+        .form-group .radio-group {
+            margin-bottom: 0;
+        }
+
+        .checkbox-group {
+            flex-grow: 1;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin-right: 6px;
+            outline: none;
+            position: relative;
+            background-color: #fff;
+            flex-shrink: 0; 
+        }
+
+        .checkbox-item input[type="checkbox"]:checked {
+            background-color: #e0f2f7;
+            border-color: #7ab3e1;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked::before {
+            content: '\2713';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4a4a4a;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .checkbox-item input[type="checkbox"]:hover {
+            border-color: #a0a0a0;
+        }
+
+        .checkbox-item input[type="checkbox"]:focus {
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .captcha-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.captcha-code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #444;
+    border: 1px solid #ddd; 
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+    display: inline-block;
+    align-self: flex-start;
+    user-select: none;
+}
+
+.captcha-change {
+    font-size: 12px;
+    color:black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.captcha-change:hover {
+    color:black;
+}
+
+.captcha-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Basic Info</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <label>Employee ID</label>
+                <input type="text" value="9" readonly>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" value="Annsworth">
+            </div>
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" value="Anne">
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male"> Male</label><br>
+                    <label><input type="radio" name="gender" value="female"> Female</label><br>
+                    <label><input type="radio" name="gender" value="XXX"> XXX</label><br>
+                    <label><input type="radio" name="gender" value="ZZZ"checked> ZZZ</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" value="Sales Representative">
+            </div>
+            <div class="form-group">
+                <label>Suffix</label>
+                <input type="text" value="Ms.">
+            </div>
+            <div class="form-group">
+                <label>BirthDate</label>
+                <input type="date" value="1969-07-02">
+            </div>
+            <div class="form-group">
+                <label>HireDate</label>
+                <input type="date" value="1994-11-15">
+            </div>
+            <div class="form-group">
+                <label for="ssn">SSN # (if applicable)</label><br>
+                <input type="text" id="ssn" name="ssn"><br><br>
+            </div>
+            <div class="small-select">
+                <label for="reportsTo">Reports To</label><br>
+                <select id="reportsTo" name="reportsTo">
+                    <option value="Buchanan">Buchanan</option>
+                </select>
+            </div>
+        </div>
+
+        <h2>Contact Info</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" value="7 Houndstooth Rd.">
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" value="London">
+            </div>
+            <div class="form-group">
+                <label>Region</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>Postal Code</label>
+                <input type="text" value="WG2 7LT">
+            </div>
+            <div class="small-select">
+                <label>Country</label>
+                <select>
+                    <option value="Russian Federation" selected>Russian Federation</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>US Home Phone</label>
+                <input type="tel" value="(234)234-2242">
+            </div>
+            <div class="form-group">
+                <label>Photo</label>
+                <input type="text" value="EmpID9.bmp" readonly>
+            </div>
+        </div>
+
+        <h2>Optional Info</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <label>Notes</label>
+                <textarea rows="3">Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German.ZZZ</textarea>
+            </div>
+            <div class="form-group">
+                <label>Preferred Shift</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"> 
+                        <input type="checkbox" name="preferred" > Regular</label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="preferred" checked> Gravy Yard </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Active?</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"> <input type="checkbox" checked>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Are you human?</label>
+            <div class="captcha-container">
+                <span class="captcha-code">TIDAWO</span> <span class="captcha-change">Click to change</span> <input type="text" class="captcha-input" placeholder="Enter the code above">
+            </div>
+        </div>
+        <div class="form-actions"> 
+            <button type="submit">Submit</button>
+            <button type="button">Cancel</button>
+        </div> </form>
+    </form>
+</body>
+</html>
