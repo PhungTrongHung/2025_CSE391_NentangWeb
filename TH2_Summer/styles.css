@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #2e003e;
+  color: #fff;
+}
+
+/* Header */
+header {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  border: 2px solid #ffd700;
+}
+
+#page-logo a {
+  font-family: 'Oleo Script', cursive;
+  font-size: 2rem;
+  color: #ffef00;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffef00;
+  font-weight: 500;
+}
+
+/* Hero Section */
+#hero {
+  height: 500px;
+  background-image: url('ocean.jpg'); /* Replace with real background */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: 2px solid #ffd700;
+}
+
+#hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#hero-content h1 {
+  font-size: 2rem;
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+}
+
+#hero-content p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+#hero-content a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #ffd700;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Highlights */
+#highlights {
+  background-color: #d5f4f6;
+  color: black;
+  padding: 2rem;
+  text-align: center;
+}
+
+#highlights h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+#destinations {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.destination {
+  width: 200px;
+}
+
+.destination img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  object-fit: cover;
+  height: 200px;
+}
+
+.destination p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: black;
+}
+.destination p strong {
+    color: rgb(7,144,118);
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  padding: 1rem;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+footer img {
+  width: 30px;
+  height: 30px;
+}
