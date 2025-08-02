@@ -1,0 +1,457 @@
+body {
+    color: #566787;
+    background: #2D3A4B;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+/* Top Navigation Bar */
+.navbar {
+    background-color: #2D3A4B;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-right: auto;
+}
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #fff;
+    margin-left: 20px;
+    padding: 5px 0;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: #007bff;
+}
+.navbar-nav .nav-item .nav-link.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+}
+.navbar .search-input {
+    border-radius: 4px;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    background-color: #fff;
+    color: #333;
+    margin-left: 20px;
+    width: 250px;
+    height: 34px;
+    box-sizing: border-box;
+}
+.navbar .search-input::placeholder {
+    color: #999;
+}
+.navbar .search-button {
+    background-color: #34495E;
+    color: #fff;
+    border: 1px solid #34495E;
+    border-radius: 4px;
+    padding: 5px 15px;
+    margin-left: 0px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 34px;
+    box-sizing: border-box;
+}
+.navbar .search-button:hover {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+
+/* Main Content Area */
+.container-xl {
+    background-color: #F8F9FA;
+    padding: 20px;
+    margin-top: 0;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.table-responsive {
+    margin: 0;
+    padding: 0;
+}
+
+.table-wrapper {
+    min-width: unset;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    border-radius: 4px;
+}
+
+/* Table Controls - Top section with buttons and search */
+.table-controls {
+    display: flex;
+    /* SỬA CHỖ NÀY: Dùng flex-start để các nhóm căn về phía trái */
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    /* SỬA CHỖ NÀY: Khoảng cách giữa các phần tử chính */
+    gap: 20px; /* Điều chỉnh giá trị này nếu muốn khoảng cách khác */
+    flex-wrap: wrap; /* SỬA CHỖ NÀY: Cho phép các mục xuống dòng nếu không đủ chỗ */
+}
+
+.table-controls .left-buttons {
+    display: flex;
+    align-items: center;
+    /* Không cần margin-right ở đây nữa vì đã có gap ở phần tử cha */
+}
+
+.table-controls .left-buttons .btn {
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: none;
+    border: 1px solid transparent;
+    height: 38px;
+    box-sizing: border-box;
+}
+
+.table-controls .left-buttons .btn.btn-primary {
+    background-color: #B5D7F1;
+    color: #007bff;
+    border-color: #B5D7F1;
+    margin-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+.table-controls .left-buttons .btn.btn-primary i {
+    color: #007bff;
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.table-controls .left-buttons .btn-outline {
+    background-color: #F0F0F0;
+    color: #555;
+    border: 1px solid #ddd;
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+    padding-right: 10px;
+    padding-left: 15px;
+}
+
+.table-controls .left-buttons .btn-outline i {
+    color: #555;
+    transform: none;
+    margin-left: 5px;
+    margin-right: 0;
+    font-size: 20px;
+}
+
+/* Wrapper for search and arrows to keep them as one unit */
+.table-controls .search-and-arrows-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 0;
+    /* SỬA CHỖ NÀY: Loại bỏ flex-grow để không gian được phân bổ đều hơn,
+                     và đặt width cụ thể để giữ thẳng hàng */
+    width: 350px; /* Điều chỉnh độ rộng này cho phù hợp với thiết kế của bạn */
+    height: 38px;
+    /* SỬA CHỖ NÀY: Thêm margin-right để tạo khoảng cách với ô kết quả nếu không muốn dùng gap */
+    /* margin-right: 20px; */
+}
+
+.table-controls .nav-arrow-btn {
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 100%;
+}
+
+.table-controls .nav-arrow-btn:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-right: 1px solid #eee;
+}
+
+.table-controls .nav-arrow-btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-left: 1px solid #eee;
+}
+
+.table-controls .search-container {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background-color: #fff;
+    flex-grow: 1;
+    height: 100%;
+}
+.table-controls .search-container input {
+    border: none;
+    background-color: transparent;
+    padding: 0 10px;
+    outline: none;
+    flex-grow: 1;
+    height: 100%;
+    box-sizing: border-box;
+}
+.table-controls .search-container .material-icons {
+    color: #888;
+    margin-left: 5px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.table-controls .result-dropdown {
+    display: flex;
+    align-items: center;
+    /* SỬA CHỖ NÀY: Xóa các margin không cần thiết nếu dùng gap */
+}
+.table-controls .result-dropdown label {
+    margin-right: 10px;
+    font-weight: normal;
+    color: #555;
+    white-space: nowrap;
+}
+.table-controls .result-dropdown select {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 25px 5px 10px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-13%205.4-13%2013s5.4%2013%2013%2013h255.2c6.5%200%2013-5.4%2013-13s-5.4-13-13-13z%22%2F%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%20196.9a17.6%2017.6%200%200%0A0-13-5.4H18.4c-6.5%200-13%205.4-13%2013s5.4%2013%2013%2013h255.2c6.5%200%2013-5.4%2013-13s-5.4-13-13-13z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 10px;
+    height: 38px;
+    box-sizing: border-box;
+}
+
+
+/* Table header styling */
+table.table thead tr {
+    background-color: #f2f2f2;
+}
+table.table th {
+    vertical-align: middle;
+    padding: 12px 15px;
+    font-weight: bold;
+    background-color: #E6E7EB;
+    color: #333;
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+}
+table.table th:first-child {
+    border-top-left-radius: 4px;
+}
+table.table th:last-child {
+    border-top-right-radius: 4px;
+}
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Table body styling */
+table.table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #dee2e6;
+}
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc;
+}
+table.table-striped tbody tr:nth-of-type(even) {
+    background-color: #fff;
+}
+
+table.table td .action-buttons {
+    display: flex; /* Đảm bảo rằng phần tử cha của các nút là flex container */
+    justify-content: center; /* Căn giữa các nút theo chiều ngang trong ô */
+    align-items: center; /* Căn giữa các nút theo chiều dọc */
+    gap: 5px; /* Tạo khoảng cách giữa các nút */
+}
+
+table.table td .action-buttons .btn {
+    padding: 5px 8px;
+    font-size: 14px;
+    border-radius: 3px;
+    display: inline-flex; /* Đảm bảo các nút là flex item */
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Đảm bảo tất cả các nút có cùng kích thước */
+    height: 30px;
+}
+table.table td .btn.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+table.table td .btn.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+table.table td .btn.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+table.table td .btn i {
+    font-size: 16px;
+    margin: 0;
+    color: #fff;
+}
+table.table td:first-child input[type="checkbox"] {
+    margin-right: 0;
+    transform: scale(1.2);
+}
+table.table td:first-child {
+    width: 50px;
+    text-align: center;
+}
+table.table td:nth-child(2) {
+    width: 120px;
+    text-align: center;
+}
+table.table td:nth-child(5),
+table.table td:nth-child(6) {
+    white-space: nowrap;
+}
+
+/* Delete selected records button */
+.table-wrapper > .btn.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+.table-wrapper > .btn.btn-danger i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Pagination */
+.clearfix {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+.clearfix .pagination {
+    margin: 0;
+    align-items: center;
+}
+.clearfix .pagination li.page-item:first-child a {
+    margin-right: 15px;
+    font-weight: bold;
+    color: #555;
+    background-color: transparent;
+    border: none;
+    padding-left: 0;
+}
+.clearfix .pagination li.page-item a {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 3px;
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.clearfix .pagination li.page-item a:hover {
+    background-color: #e9ecef;
+}
+.clearfix .pagination li.active a {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+.clearfix .pagination li:last-child a {
+    border: none;
+    background: transparent;
+    color: #333;
+    font-size: 20px;
+    padding: 0;
+    margin-left: 10px;
+}
+.clearfix .hint-text {
+    font-weight: normal;
+    color: #555;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #2D3A4B;
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+    margin-top: 20px;
+    font-size: 14px;
+    max-width: 95%; /* Đảm bảo chiều rộng tối đa giống với .container-xl */
+    margin-left: auto; /* Căn giữa footer */
+    margin-right: auto; /* Căn giữa footer */
+    box-sizing: border-box;
+}
+.footer p {
+    margin-bottom: 5px;
+}
+.footer strong {
+    font-size: 16px;
+}
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}

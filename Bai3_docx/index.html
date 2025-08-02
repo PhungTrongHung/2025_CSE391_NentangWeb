@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap Simple Data Table</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="navbar">
+    <a href="#" class="navbar-brand">TRƯỜNG ĐẠI HỌC THỦY LỢI</a>
+    <div class="header-right">
+        <div>Trang chủ</div>
+        <div>Quản lý cửa hàng</div>
+        <input type="text" class="search-input" placeholder="Nhập nội dung tìm kiếm">
+        <button class="search-button">Tìm kiếm</button>
+    </div>
+</div>
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+        <div class="table-controls">
+    <div class="left-buttons">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addEmployeeModal"><i class="material-icons">&#xE147;</i> Thêm</button>
+    <button type="button" class="btn btn-outline"><i class="material-icons">&#xE24D;</i> Xuất ra file</button>
+    </div>
+    <div class="search-and-arrows-group"> <button type="button" class="nav-arrow-btn"><i class="fa fa-angle-left"></i></button>
+        <div class="search-container">
+            <input type="text" class="form-control" placeholder="Tìm kiếm theo">
+            <i class="material-icons">&#xE8B6;</i>
+        </div>
+    <button type="button" class="nav-arrow-btn"><i class="fa fa-angle-right"></i></button>
+    </div>
+    <div class="result-dropdown">
+        <label for="results">Kết quả</label>
+        <select class="form-control" id="results">
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+        </select>
+    </div>
+</div>
+</div>
+
+ <table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Hành động</th>
+            <th>STT<i class="fa fa-sort"></i></th>
+            <th>Tên<i class="fa fa-sort"></i></th>
+            <th>Họ đệm<i class="fa fa-sort"></i></th>
+            <th>Địa chỉ<i class="fa fa-sort"></i></th>
+            <th>Hoạt động<i class="fa fa-sort"></i></th>
+        </tr>
+    </thead>
+    <tbody id="employeeTableBody">
+    </tbody>
+        </table>
+            <button type="button" class="btn btn-danger"><i class="material-icons">&#xE872;</i> DELETE SELECTED RECORDS</button>
+                <div class="clearfix">
+                    <ul class="pagination">
+                    <li class="page-item"><a href="#" class="page-link">Trang</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">6</a></li>
+                    <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
+                </ul>
+            <div class="col-sm-6">
+                <div id="resultCount" class="result-count">Kết quả 1 đến 1</div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><strong>TRƯỜNG ĐẠI HỌC THỦY LỢI</strong></p>
+    <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+    <p>Điện thoại: (024) 38522251 - Fax: (024) 35633351</p>
+    <p>Email: <a href="mailto:phonght@tlu.edu.vn">phonght@tlu.edu.vn</a></p>
+</div> 
+
+<div id="addEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="addEmployeeForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm nhân viên</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tên</label>
+                        <input type="text" id="addName1" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Họ đệm</label>
+                        <input type="text" id="addName2" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input type="text" id="addAddress" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Hủy">
+                    <input type="submit" class="btn btn-success" value="Thêm">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="editEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="editEmployeeForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sửa nhân viên</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editEmployeeId"> <div class="form-group">
+                        <label>Tên</label>
+                        <input type="text" id="editName1" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Họ đệm</label>
+                        <input type="text" id="editName2" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input type="text" id="editAddress" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Hủy">
+                    <input type="submit" class="btn btn-success" value="Lưu">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="deleteEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Xóa nhân viên</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="deleteEmployeeId"> <p>Bạn có chắc chắn muốn xóa bản ghi này?</p>
+                    <p class="text-warning"><small>Hành động này không thể hoàn tác.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Hủy">
+                    <input type="button" id="confirmDeleteBtn" class="btn btn-danger" value="Xóa">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="script.js"></script> 
+</body>
+</html>
